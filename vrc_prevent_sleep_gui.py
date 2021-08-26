@@ -62,7 +62,7 @@ def tkinter_main():
                 if window_title in ['', 'Cortana', 'アクション センター', '画面の領域の切り取り']:
                     # winを押したときか，タスクバー押したときか，スクショしようとしたらエラー出るので弾く
                     print("'' or 'Cortana' or 'アクション センター' or '画面の領域の切り取り'")
-                    for i in range(1): #default 20
+                    for i in range(20): #default 20
                         # print(i)
                         if thread4_alive:  # 停止を押さない限り
                             time.sleep(1)
@@ -120,7 +120,7 @@ def tkinter_main():
                         # vrchat_focus_exception = 1f
                         # break #breakするとプログラム終わる
                         # time.sleep(20)
-                        for i in range(1):  # default 20
+                        for i in range(20):  # default 20
                             # print(i)
                             if thread4_alive:  # 停止を押さない限り
                                 time.sleep(1)
@@ -132,7 +132,7 @@ def tkinter_main():
                         x = move_body(press_keyboard)  # 貧乏ゆすり
                         press_keyboard = x
                         # time.sleep(5)
-                        for i in range(1):  #default 1800
+                        for i in range(1800):  #default 1800
                             if thread4_alive:
                                 time.sleep(1)
                             else:
@@ -145,7 +145,7 @@ def tkinter_main():
                 print("vrchatが起動していないっぽい")
                 # Button_shaking_legs["text"] = '貧乏ゆすり-使用中'
                 # Button_shaking_legs["state"] = tkinter.NORMAL
-                for i in range(1): #default 300
+                for i in range(300): #default 300
                     # print(i)
                     if thread4_alive:  # 停止を押さない限り
                         time.sleep(1)
