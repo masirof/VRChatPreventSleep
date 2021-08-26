@@ -5,6 +5,7 @@ import tkinter  # gui
 import threading
 import win32gui
 import pyautogui
+import pydirectinput
 import win32com.client
 
 # 関数に入れとくと動作しないでエラー出るので上流に置く
@@ -14,8 +15,9 @@ shell = win32com.client.Dispatch("WScript.Shell")
 def tkinter_main():
     ''' threading呼び出し '''
 
-    def Button_shaking_legs_action(event):
-        # Button_shaking_legs["state"] = tkinter.DISABLED
+    def Button_shaking_legs_action():
+    # def Button_shaking_legs_action(event):
+        Button_shaking_legs["state"] = tkinter.DISABLED
         Button_shaking_legs["text"] = '貧乏ゆすり-使用中'
         global thread4_alive
         thread4_alive = True
@@ -24,8 +26,10 @@ def tkinter_main():
         thread4.start()
         # Button_shaking_legs["state"] = tkinter.NORMAL
 
-    def Button_stop_shaking_legs_action(event):
+    def Button_stop_shaking_legs_action():
+    # def Button_stop_shaking_legs_action(event):
         Button_stop_shaking_legs["state"] = tkinter.DISABLED
+        Button_shaking_legs["state"] = tkinter.NORMAL
         Button_shaking_legs["text"] = '貧乏ゆすり'
         global thread4_alive
         thread4_alive = False
@@ -58,7 +62,7 @@ def tkinter_main():
                 if window_title in ['', 'Cortana', 'アクション センター', '画面の領域の切り取り']:
                     # winを押したときか，タスクバー押したときか，スクショしようとしたらエラー出るので弾く
                     print("'' or 'Cortana' or 'アクション センター' or '画面の領域の切り取り'")
-                    for i in range(20): #default 20
+                    for i in range(1): #default 20
                         # print(i)
                         if thread4_alive:  # 停止を押さない限り
                             time.sleep(1)
@@ -77,7 +81,7 @@ def tkinter_main():
                         #アクティブウィンドウの変更
                         # win32gui.SetForegroundWindow(vrchat_handle)  # vrchatフォーカス
                         if press_keyboard == 'w':
-                            pyautogui.press('w', presses=3, interval=0.05)
+                            pydirectinput.press('w', presses=1, interval=0.05)
                             win32gui.SetForegroundWindow(h_wnd)  # 直前ウィンドウフォーカス
                             pyautogui.moveTo(mouse_x, mouse_y)  # マウスを元の位置に
                             now_time = datetime.datetime.now()
@@ -89,7 +93,7 @@ def tkinter_main():
                             return press_keyboard
 
                         elif press_keyboard == 's':
-                            pyautogui.press('s', presses=3, interval=0.05)
+                            pydirectinput.press('s', presses=1, interval=0.05)
                             win32gui.SetForegroundWindow(h_wnd)
                             pyautogui.moveTo(mouse_x, mouse_y)  # マウスを元の位置に
                             now_time = datetime.datetime.now()
@@ -116,7 +120,7 @@ def tkinter_main():
                         # vrchat_focus_exception = 1f
                         # break #breakするとプログラム終わる
                         # time.sleep(20)
-                        for i in range(20):  # default 20
+                        for i in range(1):  # default 20
                             # print(i)
                             if thread4_alive:  # 停止を押さない限り
                                 time.sleep(1)
@@ -128,7 +132,7 @@ def tkinter_main():
                         x = move_body(press_keyboard)  # 貧乏ゆすり
                         press_keyboard = x
                         # time.sleep(5)
-                        for i in range(1800):  #default 1800
+                        for i in range(1):  #default 1800
                             if thread4_alive:
                                 time.sleep(1)
                             else:
@@ -141,7 +145,7 @@ def tkinter_main():
                 print("vrchatが起動していないっぽい")
                 # Button_shaking_legs["text"] = '貧乏ゆすり-使用中'
                 # Button_shaking_legs["state"] = tkinter.NORMAL
-                for i in range(300): #default 300
+                for i in range(1): #default 300
                     # print(i)
                     if thread4_alive:  # 停止を押さない限り
                         time.sleep(1)
@@ -170,15 +174,17 @@ def tkinter_main():
 
     '''ボタン群'''
     Button_stop_shaking_legs = tkinter.Button(
-        frame_top, text=u'停止', font=("", 20), height=1, bg='indianred1')
-    Button_stop_shaking_legs.bind(
-        "<Button-1>", Button_stop_shaking_legs_action)
+        frame_top, text=u'停止', font=("", 20), height=1, bg='indianred1',
+        command=Button_stop_shaking_legs_action)
+    # Button_stop_shaking_legs.bind(
+    #     "<Button-1>", Button_stop_shaking_legs_action)
     Button_stop_shaking_legs.pack(side='left')
 
     Button_shaking_legs = tkinter.Button(
-        frame_top, text=u'貧乏ゆすり', font=("", 20), height=1, width=16, bg='gray')
-    Button_shaking_legs.bind(
-        "<Button-1>", Button_shaking_legs_action)
+        frame_top, text=u'貧乏ゆすり', font=("", 20), height=1, width=16, bg='gray',
+        command=Button_shaking_legs_action)
+    # Button_shaking_legs.bind(
+    #     "<Button-1>", Button_shaking_legs_action)
     Button_shaking_legs.pack(side='left')
 
     root.mainloop()
