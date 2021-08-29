@@ -2,15 +2,15 @@
 VRChatで放置をした際のタイムアウトを防ぎます。  
 This software can prevent sleep in AFK(Away From Keyboard) vrchat  
 
-画像
-
 
 ## 使い方
 VRChatPreventSleepをGithubのReleaseからインストールしてください。  
 exeをインストールし，exeをクリックするとGUIが出てきます。  
+
+ ![Test Image 1](https://github.com/masirof/VRChatPreventSleep/blob/main/VRChatPreventSleep1.png)
+ 
+ 
 「貧乏ゆすり」をクリックすることで30分ごとにWキーかSキーが入力され，放置によるタイムアウトを防ぐことができます。  
-  画像
-  
 「停止」を押すことにより貧乏ゆすりプログラムを停止することができます。
 
 移動操作後，使っていた最後のウィンドウ戻るので便利です。 
