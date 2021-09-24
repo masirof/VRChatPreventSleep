@@ -3,6 +3,7 @@ VRChatで放置をした際のタイムアウトを防ぎます。
 This software can prevent sleep in AFK(Away From Keyboard) vrchat  
 <!--  ![Test Image 1](https://github.com/masirof/VRChatPreventSleep/blob/main/VRChatPreventSleep2.png) -->
  <img src="https://github.com/masirof/VRChatPreventSleep/blob/main/VRChatPreventSleep2.png" width="500">
+ <img src="https://github.com/masirof/VRChatPreventSleep/blob/main/VRChatPreventSleep3_n.png" width="500">
 
 
 ## 使い方
